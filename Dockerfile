@@ -12,7 +12,7 @@ COPY * ./
 RUN pip install -r requirements.txt
 
 # #xpose port 8501
-EXPOSE 8501
+EXPOSE 8000
 
 # Run streamlit
-CMD ["streamlit", "run", "main.py", "--server.address", "0.0.0.0"]
+CMD ["sh", "-c", "fastapi run main.py --host 0.0.0.0 --port ${PORT:-8000}"]
