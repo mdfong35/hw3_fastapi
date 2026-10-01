@@ -11,8 +11,8 @@ COPY * ./
 # Install required packages/libs
 RUN pip install -r requirements.txt
 
-# #xpose port 8501
+# expose port 8000
 EXPOSE 8000
 
 # Run streamlit
-CMD ["sh", "-c", "fastapi run main.py --host 0.0.0.0 --port ${PORT:-8000}"]
+CMD ["fastapi", "run", "extract_save_data.py", "--host", "0.0.0.0", "--port", "8000"]
